@@ -1,0 +1,86 @@
+<html>
+<head>
+   <meta charset="UTF-8"> 
+  <title>Timbral Searching</title>
+  <link rel="stylesheet" type="text/css" href="all.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet' type='text/css'>
+</head>
+<body onload="start();">
+  <canvas></canvas>
+
+  <div id="query_box" class="box">
+    <form id="online-query-form" class="online-query-form">
+      <input id="query_terms_input" type="text" placeholder="Snare">
+        <input type="submit" id="go_button" value="Go!"></form>
+    </form>
+
+    <form id="axis_query_form" class="query-form">
+      <p>Select x-axis attribute</p>
+      <!--<select id="x_axis_map_descriptors_selector" onchange="start()">-->
+      <select id="x_axis_map_descriptors_selector" onchange="move_stimuli_positions()">
+          <option value="timbre.brightness">Brightness</option>
+          <option value="timbre.hardness">Hardness</option>
+          <option value="timbre.depth">Depth</option>
+          <option value="timbre.roughness">Roughness</option>
+          <option value="timbre.warmth">Warmth</option>
+          <option value="timbre.sharpness">Sharpness</option>
+          <option value="timbre.boominess">Boominess</option>
+      </select>
+      <p><br>Select y-axis attribute</p>
+      <select id="y_axis_map_descriptors_selector" onchange="move_stimuli_positions()">
+          <option value="timbre.brightness">Brightness</option>
+          <option value="timbre.hardness" selected>Hardness</option>
+          <option value="timbre.depth">Depth</option>
+          <option value="timbre.roughness">Roughness</option>
+          <option value="timbre.warmth">Warmth</option>
+          <option value="timbre.sharpness">Sharpness</option>
+          <option value="timbre.boominess">Boominess</option>
+      </select>
+      <p><br>Number of files</p>
+      <input type="number" name="num_of_files" id="num_of_files" min="2" max="400" value="150">
+    </form>
+
+    <div id="info_placeholder"></div>	
+  </div>
+
+  <div id="instructions_box" class="box">
+    Click on points to listen to sounds<br>
+    Click + drag to navigate the map<br>
+    Scroll wheel to zoom<br>
+  </div>
+  
+  <div id="x_axis_box" class="box">
+    
+  </div>
+  
+  <div id="y_axis_box" class="box">
+    
+  </div>
+
+  <div id="sound_info_box" class="box">
+  </div>
+
+  <div id="logo_box" class="box">
+    TIMBRAL EXPLORER <!--SOUND MAP VISUALIZER-->
+  </div>
+
+  <!-- javascript loading must be at the end -->
+  <script src="inputevents.js"></script>
+  <script src="audioengine.js"></script>
+  <script src="tsne.js"></script>
+  <script src="utils.js"></script>
+  <script src="all.js"></script>
+
+  <!--<script>-->
+    <!--// script to force the online/offline state-->
+    <!--var online_form = document.getElementById("online-query-form");-->
+    <!--var offline_form = document.getElementById("offline-query-form");-->
+    <!--// setting to offline due to control_display() reversing the initial condition-->
+    <!--offline_form.style.display = "block";-->
+    <!--online_form.style.display = "none";-->
+    <!--online_offline_state = "offline";-->
+
+  <!--</script>-->
+
+</body>
+</html>
