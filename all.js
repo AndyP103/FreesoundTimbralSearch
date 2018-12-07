@@ -292,7 +292,8 @@ function load_data_from_fs_json(data) {
                 brightness: sound_json.ac_analysis.ac_brightness,
                 roughness: sound_json.ac_analysis.ac_roughness,
                 sharpness: sound_json.ac_analysis.ac_sharpness,
-                boominess: sound_json.ac_analysis.ac_booming
+                boominess: sound_json.ac_analysis.ac_booming,
+                warmth: sound_json.ac_analysis.ac_warmth,
             }
             sound.analysis.timbre = timbre;
             sounds.push(sound);
